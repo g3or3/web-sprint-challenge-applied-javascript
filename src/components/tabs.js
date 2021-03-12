@@ -17,7 +17,7 @@ const Tabs = (topics) => {
   const topicsDiv = document.createElement('div')
   topicsDiv.classList.add('topics')
   
-  topics['topics'].forEach(topic => {                        // the argument was not an array of strings, it was an object containing one key 'topics' 
+  topics.forEach(topic => {                        // the argument was not an array of strings, it was an object containing one key 'topics' 
     const newTopicDiv = document.createElement('div')        // and the value was the array of strings
     newTopicDiv.classList.add('tab')
     newTopicDiv.textContent = topic
@@ -44,7 +44,7 @@ const tabsAppender = (selector) => {
   axios
   .get('https://lambda-times-api.herokuapp.com/topics')
   .then(res => {
-    const tabs = Tabs(res.data)
+    const tabs = Tabs(res.data['topics'])
     parent.appendChild(tabs)
   })
   .catch(err => console.log(err))
