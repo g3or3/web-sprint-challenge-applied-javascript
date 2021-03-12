@@ -42,6 +42,7 @@ const Header = (title, date, temp) => {
 const headerAppender = (selector) => {
   const parent = document.querySelector(selector)
   const header = Header('Lambda Times', 'March 5, 1996', '70°')
+  
   parent.appendChild(header)
 }
 
